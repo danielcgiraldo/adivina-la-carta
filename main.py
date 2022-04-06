@@ -1,1 +1,6 @@
-print('Hola Mundo')
+print(f"Adivina donde está La Reina de Corazones")
+print(f"Hola, bienvenido a nuestro juego...olvide tu nombre, ¿podrias recordarlmelo?")
+player=(input("Ingrese el nombre del Jugador: "))
+print(f"Hola {player}, ahora si te doy la bienvenida formal a ''Adivina dónde esta La Reina de Corazones''")
+print(f"Las instrucciones del juego son simples:\n1. Salen tres cartas al azar, de estas tres cartas una de ellas es una Reina de Corazones.")
+print(f"2. Se te muestran las tres cartas, rapidamente las debes memorizar sus pocisiones.\n3. Después se van a voltear e intercambiarse entre ellas.\n(Como eres un principiante se comenzaran a realizar los intercambios lentamente);\n4. Finalizados los intercambios debes escoger una de las cartas;\n5. Si aciertas con la carta de la Reina de Coraznes, ganas y avanzas al siguiente nivel.\n(Los niveles aumentan de dificultad cada vez que los superas)\n¡Mucha Suerte!")
