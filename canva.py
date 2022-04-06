@@ -32,7 +32,7 @@ def start_game(event):
     l(item2)
     l_m(item3)
 
-photo1 = PhotoImage(file="./resources/images/card.png")
+photo1 = PhotoImage(file="resources/images/card.png")
 width1 = photo1.width()
 height1 = photo1.height()
 canva = Canvas(width=width1*3 + 70, height=height1 + 50)
