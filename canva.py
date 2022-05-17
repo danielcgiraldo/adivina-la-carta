@@ -9,7 +9,6 @@ def l_m(item):
     time.sleep(0.05)
     if(canva.coords(item)[0] < 3*x + 15):
         l_m(item)
-        root.update()
 
 def l(item):
     canva.move(item, -100, 0)
