@@ -31,7 +31,7 @@ def numeroconsec(lista):
         res=res+1
     if m==5:
         return ("Real")
-    elif n==5:
+    elif n==5 and lista[2] != lista[3]: #Aqui esta el cambiecito
         return True
     else:
         return False
