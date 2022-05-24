@@ -74,6 +74,18 @@ def generar_cartas(Q, K, J):
 def mover_cartas(movimientos, desplazamiento, tiempo, carta, tiempo_espera):
     posicion = generar_cartas()
 
+def mostrar_carta(carta):
+    width_card = q.width()
+    height_card = q.height()
+    canva = Canvas(width=width_card + 70, height=height_card + 20)
+    canva.pack()
+    x = (width_card)/2.0
+    y = (height_card)/2.0
+    carta = canva.create_image(x + 30, y, image=carta)
+    root.after(5000, lambda: root.destroy())
+
+# cartas = ['Q', 'K', 'P']
+# mostrar_carta(cartas[random.randint(0,3)])
 
 # movimientos: "1 2", "2 3", "1 3"
 # desplazamiento: 10, 20, 30, 40, 50
@@ -94,10 +106,17 @@ def mover_cartas(movimientos, desplazamiento, tiempo, carta, tiempo_espera):
     # desplazamiento = 50
     # tiempo = 0.05 - 0.005 * (nivel - 5)
     # tiempo_espera = 0.5 - 0.1 * (nivel - 5)
+    # tiempo_espera = max(0, tiempo_espera)
 
 speed = 10
 speed_time = 0.05
 tiempo_espera = 0.5
+q = PhotoImage(file="./resources/images/q.png")
+k = PhotoImage(file="./resources/images/k.png")
+j = PhotoImage(file="./resources/images/j.png")
+mostrar_carta(q)
+root.mainloop()
+root = Tk()
 q = PhotoImage(file="./resources/images/q.png")
 k = PhotoImage(file="./resources/images/k.png")
 j = PhotoImage(file="./resources/images/j.png")
