@@ -82,8 +82,18 @@ def mover_cartas(movimientos, desplazamiento, tiempo, carta, tiempo_espera):
 # posicion: I, M, D
 #tiempo_espera: 0.5, 0.4, 0.3, 0.2, 0.1, 0
 
-# mover(movimientos, desplazamiento, tiempo, carta)
+# mover(movimientos, desplazamiento, tiempo, carta, tiempo_espera)
 #   return posicion
+
+
+# if(nivel < 5)
+    #desplazamiento(10 * nivel)
+    #tiempo = 0.05
+    #tiempo_espera = 0.5
+#   else
+    # desplazamiento = 50
+    # tiempo = 0.05 - 0.005 * (nivel - 5)
+    # tiempo_espera = 0.5 - 0.1 * (nivel - 5)
 
 speed = 10
 speed_time = 0.05
