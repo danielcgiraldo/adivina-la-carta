@@ -52,7 +52,7 @@ def start_game(event):
 
 # movimientos: "1 2", "2 3", "1 3"
 # desplazamiento: 10, 20, 30, 40, 50
-# tiempo: 0.05, 0.04, 0.03, 0.02, 0.015, 0.01
+# tiempo: 0.05, 0.04, 0.03, 0.02, 0.015, 0.0145, 0.014, 0.012, 0.01
 # carta: J, K, Q
 # posicion: I, M, D
 
@@ -60,7 +60,7 @@ def start_game(event):
 #   return posicion
 
 speed = 50
-speed_time = 0.01
+speed_time = 0.014
 photo1 = PhotoImage(file="./resources/images/card.png")
 width1 = photo1.width()
 height1 = photo1.height()
