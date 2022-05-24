@@ -14,7 +14,28 @@ if option == "3":
 
 print("\n====== Fin del Programa =========")
 
+def g(movimientos,desplazamiento,tiempo,carta):
+    orden=[1,2,3]
+    change=random.sample(orden,k=movimientos)
+    if desplazamiento != 50:
+        desplazamiento += 10
+    if tiempo>0.01:
+        tiempo -= 0.005
+    tiempo=[0.05,0.04,0.03,0.02,0.01]
+    pos1 = change[0]
+    pos2 = change[1]
+    orden[pos1], orden[pos2] = orden[pos2], orden[pos1]
+    
+    
+    
+    if rta == "I":
+        posi = 0
+    elif rta == "M":
+        posi = 1
+    elif rta == "D":
+        posi = 2
 
+    return (posi)
 import random
 cartas=["♣","♡","♠️"]
 orden=[0,1,2]
@@ -22,9 +43,7 @@ mensaje=["izq","medio","der"]
 change=random.sample(orden,k=2)
 print(change)
 print(cartas)
-pos1 = change[0]
-pos2 = change[1]
-orden[pos1], orden[pos2] = orden[pos2], orden[pos1]
+
 cartasrev=cartas.copy()
 cartasrev[pos1], cartasrev[pos2] = cartasrev[pos2], cartasrev[pos1]
 print(cartasrev)
