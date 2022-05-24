@@ -1,5 +1,5 @@
 # fundamentos-proyecto
- Proyecto de Programación Python para la materia Fundamentos de Programación
+ Proyecto de Programación Python para la materia Fundamentos de Programación 2022-1
 
 
 # Referencias

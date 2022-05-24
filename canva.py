@@ -3,33 +3,64 @@ import time
 
 root = Tk()
 
-def l_m(item):
-    canva.move(item, 100, 0)
+def one_two(one, two):
+    canva.move(one, speed, 0)
+    canva.move(two, -speed, 0)
     root.update()
-    time.sleep(0.05)
-    if(canva.coords(item)[0] < 3*x + 15):
-        l_m(item)
+    time.sleep(speed_time)
+    if(canva.coords(one)[0] < 3*x + 15):
+        one_two(one, two)
+    if(canva.coords(two)[0] > x + 30):
+        one_two(one, two)
 
-def l(item):
-    canva.move(item, -100, 0)
+def two_three(two, three):
+    canva.move(two, speed, 0)
+    canva.move(three, -speed, 0)
     root.update()
-    time.sleep(0.05)
-    if(canva.coords(item)[0] > x + 30):
-        l(item)
+    time.sleep(speed_time)
+    if(canva.coords(two)[0] < 5*x + 30):
+        two_three(two, three)
+    if(canva.coords(three)[0] < 3*x + 15):
+        two_three(two, three)
 
-def r(item):
-    canva.move(item, 100, 0)
+def one_three(one, three):
+    canva.move(one, speed, 0)
+    canva.move(three, -speed, 0)
     root.update()
-    time.sleep(0.05)
-    if(canva.coords(item)[0] < 5*x + 30):
-        r(item)
+    time.sleep(speed_time)
+    if(canva.coords(one)[0] < 5*x + 30):
+        one_three(one, three)
+    if(canva.coords(three)[0] > x + 30):
+        one_three(one, three)
+
+
+def move(movements):
+    if(movements == "1 2"):
+        ...
+    elif(movements == "2 3"):
+        ...
+    elif(movements == "1 3"):
+        ...
 
 def start_game(event):
-    r(item1)
-    l(item3)
-    l(item2)
-    l_m(item3)
+    two_three(item2, item3)
+    one_two(item1, item3)
+    one_three(item3, item2)
 
+
+
+
+# movimientos: "1 2", "2 3", "1 3"
+# desplazamiento: 10, 20, 30, 40, 50
+# tiempo: 0.05, 0.04, 0.03, 0.02, 0.015, 0.01
+# carta: J, K, Q
+# posicion: I, M, D
+
+# mover(movimientos, desplazamiento, tiempo, carta)
+#   return posicion
+
+speed = 50
+speed_time = 0.01
 photo1 = PhotoImage(file="./resources/images/card.png")
 width1 = photo1.width()
 height1 = photo1.height()
