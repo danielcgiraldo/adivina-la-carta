@@ -9,3 +9,4 @@
 - https://stackoverflow.com/questions/23275445/move-an-image-in-python-using-tkinter
 - https://docs.python.org/3/library/tk.html
 - <a href="https://www.freepik.com/vectors/number-design">Number design vector created by brgfx - www.freepik.com</a>
+- https://www.memesmonkey.com/topic/game+over
