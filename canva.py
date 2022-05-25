@@ -202,3 +202,13 @@ carta_interes = 'Q'
 root.mainloop()
 
 print(resultado)
+
+
+root = Tk()
+
+game_over = PhotoImage(file="./resources/images/q.png")
+k = PhotoImage(file="./resources/images/k.png")
+j = PhotoImage(file="./resources/images/j.png")
+
+mostrar_carta("Q")
+root.mainloop()
