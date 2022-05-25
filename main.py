@@ -18,18 +18,18 @@ def niveles(nivel):
     global tiempo_espera
     if nivel<5:
         desplazamiento=10*nivel
-        tiempo = 0.05
+        tiempo = 0.045
         tiempo_espera = 0.5
     else:
         desplazamiento = 50
-        tiempo = 0.05 - 0.005 * (nivel - 5)
+        tiempo = 0.045 - 0.005 * (nivel - 5)
         tiempo_espera = 0.5 - 0.1 * (nivel - 5)
         tiempo_espera = max(0, tiempo_espera)
 
 def cambios(nivel):
     lista_general=["1 2","2 3","1 3"]
     lista_cambios=[]
-    for i in range(nivel+4):
+    for i in range(3 + nivel*2):
         p=lista_general[random.randint(0,2)]
         lista_cambios.append(p)
     return lista_cambios
@@ -188,10 +188,10 @@ print(f"\nAdivina donde está la carta ♥\n")
 print(f"Hola 👋, bienvenido a nuestro juego... olvidé tu nombre, ¿podrías recordarlmelo?")
 player= input("Ingrese el nombre del Jugador: ")
 player=player.capitalize()
-print(f'\nHola {player}, ahora si te doy la bienvenida formal a "Adivina dónde esta la carta" \nElige una de las siguientes opciones: \n')
+print(f'\nHola {player}, ahora si te doy la bienvenida formal a "Adivina dónde esta la carta" \nElige una de las siguientes opciones:')
 
 while 6>5:
-    option = input("Seleccione: [ J ] Jugar, [ T ] Tabla de Posiciones, [ I ] Instrucciones, [ S ] Salir: ")
+    option = input("\nSeleccione: [ J ] Jugar, [ T ] Tabla de Posiciones, [ I ] Instrucciones, [ S ] Salir: ")
     if(option == "S"):
         break
     elif option =="J":
@@ -199,8 +199,10 @@ while 6>5:
         nivel=1
         puntos_finales = 0
         while 5<6:
-            carticas = ['Q', 'K', 'P']
+            print(f"\n========================= NIVEL {nivel} =========================")
+            carticas = ['Q', 'K', 'J']
             carta_interes=mostrar_cartas(carticas) 
+            print()
             if(carta_interes == 'Q'):
                 print('La carta que debes seguir es la reina de corazones:')
             elif(carta_interes == 'J'):
@@ -258,13 +260,13 @@ while 6>5:
                 print("¿En cuál de las cartas está el jack de corazones?")
             else:
                 print("¿En cuál de las cartas está el rey de corazones?")
-            carta_seleccionada=str(input("Inserta [ D ] para la derecha, [ M ] para el medio ó [ I ] para la izquierda: "))
+            carta_seleccionada=str(input("Inserta [ I ] para la izquierda, [ M ] para el medio ó [ D ] para la derecha: "))
             if resultado==carta_seleccionada:
                 nivel=nivel+1
                 niveles(nivel)
                 cambios(nivel)
                 puntos_finales += 5
-                print("\n ¡Ganaste 5 puntos, pasas al siguiente nivel! \n")
+                print("\n¡Ganaste 5 puntos, pasas al siguiente nivel!")
             else:
                 root = Tk()
 
@@ -273,6 +275,7 @@ while 6>5:
                 mostrar_game_over()
 
                 root.mainloop()
+                print("\nUps! Creo que en esa posición no estaba 😥\n")
                 break
     elif option == "I":
         # ============================================= Instrucciones ============================================= #
