@@ -15,58 +15,82 @@ if option == "3":
 print("\n====== Fin del Programa =========")
 
 def g(movimientos,desplazamiento,tiempo,carta):
-    cartas=["♣","♡","♠️"]
     orden=[1,2,3]
     change=random.sample(orden,k=movimientos)
-    if desplazamiento<50:
+    if desplazamiento != 50:
         desplazamiento += 10
     if tiempo>0.01:
         tiempo -= 0.005
+    tiempo=[0.05,0.04,0.03,0.02,0.01]
+    pos1 = change[0]
+    pos2 = change[1]
+    orden[pos1], orden[pos2] = orden[pos2], orden[pos1]
+    
+    
+    
+    if rta == "I":
+        posi = 0
+    elif rta == "M":
+        posi = 1
+    elif rta == "D":
+        posi = 2
+
+    return (posi)
+import random
+cartas=["♣","♡","♠️"]
+orden=[0,1,2]
+mensaje=["izq","medio","der"]
+change=random.sample(orden,k=2)
+print(change)
+print(cartas)
+
+cartasrev=cartas.copy()
+cartasrev[pos1], cartasrev[pos2] = cartasrev[pos2], cartasrev[pos1]
+print(cartasrev)
+print(f"Intercambio {mensaje[pos1]} con {mensaje[pos2]}")
+def f(n):
+    cartas=["♣","♡","♠️"]
+    orden=[0,1,2]
+    mensaje=["izq","medio","der"]
+    change=random.sample(orden,k=2)
+    print(change)
+    print(cartas)
     pos1 = change[0]
     pos2 = change[1]
     orden[pos1], orden[pos2] = orden[pos2], orden[pos1]
     cartasrev=cartas.copy()
     cartasrev[pos1], cartasrev[pos2] = cartasrev[pos2], cartasrev[pos1]
-    if cartasrev[0]=="♡":
-        posi = "I"
-    if cartasrev[1] =="♡":
-        posi = "M"
-    if cartasrev[2] == "♡":
-        posi = "D"
+    print(cartasrev)
+    print(f"Intercambio {mensaje[pos1]} con {mensaje[pos2]}")
+    for i in range(n):
+        change=random.sample(orden,k=2)
+        pos1 = change[0]
+        pos2 = change[1]
+        cartasrev[pos1], cartasrev[pos2] = cartasrev[pos2], cartasrev[pos1]
+        print(cartasrev)
+        print(f"Intercambio {mensaje[pos1]} con {mensaje[pos2]}")
+    return cartasrev
 
-    return (posi)
-import random
-def mostrar_carta(carta)
-mostrar_carta=random.sample(cartas)
-cartas=["♣","♡","♠️"]
-orden=[0,1,2]
-mensaje=["izq","medio","der"]
-#Yo
-cartas = ['Q', 'K', 'P']
-def mostrar_cartas(lista):
-    p=lista[random.randint(0,2)]
-    return p
-carta_a_buscar=mostrar_cartas(cartas)
-
-# movimientos: "1 2", "2 3", "1 3"
-# desplazamiento: 10, 20, 30, 40, 50
-# tiempo: 0.05, 0.04, 0.03, 0.02, 0.015, 0.0145, 0.014, 0.012, 0.01
-# carta: J, K, Q
-# posicion: I, M, D
-#tiempo_espera: 0.5, 0.4, 0.3, 0.2, 0.1, 0
-
-# mover(movimientos, desplazamiento, tiempo, carta, tiempo_espera)
-#   return posicion
-
-nivel=1
-def niveles(nivel)
-if nivel<5:
-    desplazamiento=10*nivel
-    tiempo = 0.05
-    tiempo_espera = 0.5
+print("Pon las letras 'I' para la pocision izquierda, 'M' para la del medio y 'D' para la derecha, sin comas y en mayusculas")
+rta=str(input("¿Dónde esta la reina de corazones?: "))
+n=1
+if rta == "I":
+    posi = 0
+elif rta == "M":
+    posi = 1
+elif rta == "D":
+    posi = 2
+if cartasrev[posi]:
+    print("has ganado 5 ptos, pasas al siguiente nivel")
+    f(n)
+    n=n+1
+    print("Pon las letras 'I' para la pocision izquierda, 'M' para la del medio y 'D' para la derecha, sin comas y en mayusculas")
+    rta=str(input("¿Dónde esta la reina de corazones?: "))
+    if rta == "I":
+        posi = 0
+    elif rta == "M":
+        posi = 1
+    elif rta == "D":
+        posi = 2
 else:
-    desplazamiento = 50
-    tiempo = 0.05 - 0.005 * (nivel - 5)
-    tiempo_espera = 0.5 - 0.1 * (nivel - 5)
-    tiempo_espera = max(0, tiempo_espera)
-
+    print("game over")
