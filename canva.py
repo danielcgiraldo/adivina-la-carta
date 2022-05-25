@@ -190,25 +190,6 @@ input()
 
 root.after(1000, lambda: mover_cartas(generar_cartas_escondidas(posicion),['1 2', '2 3', '1 3', '1 3', '2 3'], 30, 0.05, 'Q', 0.5))
 
-lista = []
-# desplazamiento = 50
-# tiempo = 234
-carta_interes = 'Q'
-# tiempo_espera = 0
-
-
-
-
 root.mainloop()
 
 print(resultado)
-
-
-root = Tk()
-
-game_over = PhotoImage(file="./resources/images/q.png")
-k = PhotoImage(file="./resources/images/k.png")
-j = PhotoImage(file="./resources/images/j.png")
-
-mostrar_carta("Q")
-root.mainloop()
