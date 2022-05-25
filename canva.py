@@ -3,7 +3,7 @@ from tkinter import *
 import time
 
 # ====================================== TKINTER ===================================== #
-# ==== MOSTRAR 1 CARTA ===== #
+# ==== MOSTRAR IMAGEN ===== #
 
 def mostrar_carta(carta):
     ancho_carta = q.width()
@@ -18,6 +18,16 @@ def mostrar_carta(carta):
         carta = canva.create_image(x + 30, y, image=k)
     elif(carta == "J"):
         carta = canva.create_image(x + 30, y, image=j)
+    root.after(5000, lambda: root.destroy())
+
+def mostrar_game_over():
+    ancho_carta = game_over.width()
+    altura_carta = game_over.height()
+    canva = Canvas(width=ancho_carta + 70, height=altura_carta + 20)
+    canva.pack()
+    x = (ancho_carta)/2.0
+    y = (altura_carta)/2.0
+    canva.create_image(x + 30, y, image=game_over)
     root.after(5000, lambda: root.destroy())
 
 # ===== MOVIMIENTO ===== #
@@ -192,3 +202,13 @@ root.after(1000, lambda: mover_cartas(posicion,['1 2', '2 3', '1 3', '1 3'], 30,
 root.mainloop()
 
 print(resultado)
+
+
+
+root = Tk()
+
+game_over = PhotoImage(file="./resources/images/game_over.png")
+
+mostrar_game_over()
+
+root.mainloop()
