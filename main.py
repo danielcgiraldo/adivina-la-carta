@@ -42,13 +42,11 @@ def mostrar_carta(carta):
     orden=[0,1,2]
     mensaje=["izq","medio","der"]
     #Yo
-
-cartas = ['Q', 'K', 'P']
+    cartas = ['Q', 'K', 'P']
 def mostrar_cartas(lista):
     p=lista[random.randint(0,2)]
     return p
-carta_interes=mostrar_cartas(cartas)
-
+carta_a_buscar=mostrar_cartas(cartas)
 nivel=1
 def niveles(nivel):
     if nivel<5:
