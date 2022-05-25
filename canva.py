@@ -183,11 +183,21 @@ carta_escondida = PhotoImage(file="./resources/images/card.png")
 canva = ""
 longitud_carta = 0
 
-posicion = generar_cartas_escondidas(posicion)
-
 resultado = ""
 
-root.after(1000, lambda: mover_cartas(posicion,['1 2', '2 3', '1 3', '1 3'], 30, 0.05, 'Q', 0.5))
+input()
+
+
+root.after(1000, lambda: mover_cartas(generar_cartas_escondidas(posicion),['1 2', '2 3', '1 3', '1 3', '2 3'], 30, 0.05, 'Q', 0.5))
+
+lista = []
+# desplazamiento = 50
+# tiempo = 234
+carta_interes = 'Q'
+# tiempo_espera = 0
+
+
+
 
 root.mainloop()
 
