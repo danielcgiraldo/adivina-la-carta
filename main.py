@@ -36,7 +36,7 @@ def g(movimientos,desplazamiento,tiempo,carta):
 
     return (posi)
 import random
-def mostrar_carta(carta)
+def mostrar_carta(carta):
     mostrar_carta=random.sample(cartas)
     cartas=["♣","♡","♠️"]
     orden=[0,1,2]
@@ -47,19 +47,8 @@ def mostrar_cartas(lista):
     p=lista[random.randint(0,2)]
     return p
 carta_a_buscar=mostrar_cartas(cartas)
-
-# movimientos: "1 2", "2 3", "1 3"
-# desplazamiento: 10, 20, 30, 40, 50
-# tiempo: 0.05, 0.04, 0.03, 0.02, 0.015, 0.0145, 0.014, 0.012, 0.01
-# carta: J, K, Q
-# posicion: I, M, D
-#tiempo_espera: 0.5, 0.4, 0.3, 0.2, 0.1, 0
-
-# mover(movimientos, desplazamiento, tiempo, carta, tiempo_espera)
-#   return posicion
-
 nivel=1
-def niveles(nivel)
+def niveles(nivel):
     if nivel<5:
         desplazamiento=10*nivel
         tiempo = 0.05
