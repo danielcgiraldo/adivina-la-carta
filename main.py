@@ -37,7 +37,7 @@ def cambios(nivel):
 
 # ====================================== TKINTER ===================================== #
 # ==== MOSTRAR IMAGEN ===== #
-
+    #muestra la carta de interes
 def mostrar_carta(carta):
     ancho_carta = q.width()
     altura_carta = q.height()
@@ -52,7 +52,7 @@ def mostrar_carta(carta):
     elif(carta == "J"):
         carta = canva.create_image(x + 30, y, image=j)
     root.after(7000, lambda: root.destroy())
-
+    #muestra el meme
 def mostrar_game_over():
     ancho_carta = game_over.width()
     altura_carta = game_over.height()
@@ -64,6 +64,7 @@ def mostrar_game_over():
     root.after(5000, lambda: root.destroy())
 
 # ===== MOVIMIENTO ===== #
+ #time sleep es para la pocision se mantenga en cierto tiempo
 
 def uno_dos(uno, dos, desplazamiento, tiempo):
     canva.move(uno, desplazamiento, 0)
@@ -96,7 +97,7 @@ def uno_tres(uno, tres, desplazamiento, tiempo):
     if(canva.coords(tres)[0] > longitud_carta + 30):
         uno_tres(uno, tres, desplazamiento, tiempo)
 
-
+#Primero revisar en 166linea
 def mover(movements, posicion, desplazamiento, tiempo, tiempo_espera):
     if(movements == "1 2"):
         uno_dos(posicion[0][1], posicion[1][1], desplazamiento, tiempo)
@@ -120,7 +121,6 @@ def mover(movements, posicion, desplazamiento, tiempo, tiempo_espera):
         posicion[0] = posicion[2]
         posicion[2] = ans_pos
     time.sleep(tiempo_espera)
-    #print(posicion[0][0], posicion[1][0], posicion[2][0])
     return posicion
 
     
@@ -161,7 +161,7 @@ def generar_cartas_escondidas(posicion):
     return posicion
 
 # ===== MOVER ===== #
-
+   #Segundo cero nombre de la variable, el primero es la pocision
 def mover_cartas(posicion, movimientos, desplazamiento, tiempo, carta, tiempo_espera):
     global resultado
     for mov in movimientos:
@@ -230,7 +230,7 @@ while 6>5:
             q = PhotoImage(file="./resources/images/q.png")
             k = PhotoImage(file="./resources/images/k.png")
             j = PhotoImage(file="./resources/images/j.png")
-
+            #Muestra pocisión cartas al derecho
             posicion = generar_cartas_visibles()
 
             root.mainloop()
@@ -241,7 +241,7 @@ while 6>5:
 
             canva = ""
             longitud_carta = 0
-
+            #Asigna las pocisiones con las cartas ya volteadas y las muestra
             posicion = generar_cartas_escondidas(posicion)
 
             resultado = ""
