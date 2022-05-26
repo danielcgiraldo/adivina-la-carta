@@ -29,7 +29,7 @@ def niveles(nivel):
 def cambios(nivel):
     lista_general=["1 2","2 3","1 3"]
     lista_cambios=[]
-    for i in range(3 + nivel*2):
+    for i in range(3 + nivel):
         p=lista_general[random.randint(0,2)]
         lista_cambios.append(p)
     return lista_cambios
@@ -74,7 +74,6 @@ def uno_dos(uno, dos, desplazamiento, tiempo):
         uno_dos(uno, dos, desplazamiento, tiempo)
     if(canva.coords(dos)[0] > longitud_carta + 30):
         uno_dos(uno, dos, desplazamiento, tiempo)
-
 
 def dos_tres(dos, tres, desplazamiento, tiempo):
     canva.move(dos, desplazamiento, 0)
@@ -181,9 +180,6 @@ def mover_cartas(posicion, movimientos, desplazamiento, tiempo, carta, tiempo_es
 
 
 
-
-
-
 print(f"\nAdivina donde está la carta ♥\n")
 print(f"Hola 👋, bienvenido a nuestro juego... olvidé tu nombre, ¿podrías recordarlmelo?")
 player= input("Ingrese el nombre del Jugador: ")
@@ -255,16 +251,14 @@ while 6>5:
             root.mainloop()
 
             if(carta_interes == 'Q'):
-                print("¿En cuál de las cartas está la reina de corazones?")
+                print("¿En que posición está la reina de corazones?")
             elif(carta_interes == 'J'):
-                print("¿En cuál de las cartas está el jack de corazones?")
+                print("¿En que posición está el jack de corazones?")
             else:
-                print("¿En cuál de las cartas está el rey de corazones?")
+                print("¿En que posición está el rey de corazones?")
             carta_seleccionada=str(input("Inserta [ I ] para la izquierda, [ M ] para el medio ó [ D ] para la derecha: "))
             if resultado==carta_seleccionada:
                 nivel=nivel+1
-                niveles(nivel)
-                cambios(nivel)
                 puntos_finales += 5
                 print("\n¡Ganaste 5 puntos, pasas al siguiente nivel!")
             else:
@@ -276,6 +270,7 @@ while 6>5:
 
                 root.mainloop()
                 print("\nUps! Creo que en esa posición no estaba 😥\n")
+                print("\nPuntuación final:", puntos_finales)
                 break
     elif option == "I":
         # ============================================= Instrucciones ============================================= #
