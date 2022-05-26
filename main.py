@@ -51,7 +51,7 @@ def mostrar_carta(carta):
         carta = canva.create_image(x + 30, y, image=k)
     elif(carta == "J"):
         carta = canva.create_image(x + 30, y, image=j)
-    root.after(5000, lambda: root.destroy())
+    root.after(7000, lambda: root.destroy())
 
 def mostrar_game_over():
     ancho_carta = game_over.width()
