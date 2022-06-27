@@ -9,10 +9,26 @@ from datetime import datetime
 # ============================== PUNTAJES ================================== #
 
 def archivo_leer():
-    ...
+    archivo=open("db.txt","r")
+    tabla=[]
+    for renglon in archivo:
+        palabra=renglon.split("|")
+        tabla.append(palabra)
+    archivo.close()
+    return tabla
 
+    
 def archivo_escribir(tabla):
-    ...
+    archivo=open("db.txt","w")
+    lista=[]
+    for i in range(0,len(tabla)):
+        renglon1=f"{tabla[i][0]} {tabla[i][1]} {tabla[i][2]}"
+        lista.append(renglon1)
+    n=0
+    for renglon in archivo:
+        renglon=lista[n]
+        n=n+1
+    archivo.close()
 
 
 def definir_puntaje(puntaje, usuario):
