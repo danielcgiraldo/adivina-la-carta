@@ -9,7 +9,7 @@ from datetime import datetime
 # ============================== PUNTAJES ================================== #
 
 def archivo_leer():
-    archivo=open("db.txt","r")
+    archivo=open("./resources/db.txt","r")
     tabla=[]
     for renglon in archivo:
         palabra=renglon.split("|")
@@ -19,15 +19,13 @@ def archivo_leer():
 
     
 def archivo_escribir(tabla):
-    archivo=open("db.txt","w")
+    archivo=open("./resources/db.txt","w")
     lista=[]
     for i in range(0,len(tabla)):
-        renglon1=f"{tabla[i][0]} {tabla[i][1]} {tabla[i][2]}"
+        renglon1=f"{tabla[i][0]}|{tabla[i][1]}|{int(tabla[i][2])}"
         lista.append(renglon1)
-    n=0
-    for renglon in archivo:
-        renglon=lista[n]
-        n=n+1
+    for renglon in lista:
+        print(renglon, end='\n', file=archivo)
     archivo.close()
 
 
@@ -36,19 +34,19 @@ def definir_puntaje(puntaje, usuario):
     if(len(tabla) > 0):
         for i in range(0, max(5, len(tabla))):
             if(i > len(tabla) - 1):
-                tabla.append([datetime.now(), usuario, puntaje])
+                tabla.append([datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
                 break
             else:
-                if puntaje > tabla[i][2]:
-                    tabla.insert(i, [datetime.now(), usuario, puntaje])
-                elif puntaje == tabla[i][2]:
-                    tabla.insert(i + 1, [datetime.now(), usuario, puntaje])
+                if puntaje > int(tabla[i][2]):
+                    tabla.insert(i, [datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
+                elif puntaje == int(tabla[i][2]):
+                    tabla.insert(i + 1, [datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
         if(len(tabla) > 5):
             archivo_escribir(tabla[0:5:1])
         else:
             archivo_escribir(tabla)
     else:
-        archivo_escribir([[datetime.now(), usuario, puntaje]])
+        archivo_escribir([[datetime.now().strftime("%d/%m/%Y"), usuario, puntaje]])
 
 
 # ========================= ALEATORIO ============================= #
@@ -229,7 +227,6 @@ def mover_cartas(posicion, movimientos, desplazamiento, tiempo, carta, tiempo_es
 print(f"\nAdivina donde está la carta ♥\n")
 print(f"Hola 👋, bienvenido a nuestro juego... olvidé tu nombre, ¿podrías recordarlmelo?")
 player= input("Ingrese el nombre de usuario: ")
-player=player.capitalize()
 print(f'\nHola {player}, ahora si te doy la bienvenida formal a "Adivina dónde esta la carta" \nElige una de las siguientes opciones:')
 
 while 6>5:
@@ -327,8 +324,8 @@ while 6>5:
     elif option == "T":
         # ============================================= Tabla de Posiciones ============================================= #
         tabla=archivo_leer()
-        print("=============== Tabla de Posiciones =================")
-        print("Fecha\tUsuario\tPuntaje")
+        print("\n=============== Tabla de Posiciones =================")
+        print(f"\nFecha:\tUsuario: \tPuntaje:")
         for fila in tabla:
             print(f"{fila[0]}\t{fila[1]}\t{fila[2]}")
 
