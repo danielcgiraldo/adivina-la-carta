@@ -2,8 +2,7 @@ import random
 from tkinter import *
 import time
 from datetime import datetime
-
-
+from tabulate import tabulate
 # ================================================== FUNCIONES ============================================ #
 
 # ============================== PUNTAJES ================================== #
@@ -34,19 +33,19 @@ def definir_puntaje(puntaje, usuario):
     if(len(tabla) > 0):
         for i in range(0, max(5, len(tabla))):
             if(i > len(tabla) - 1):
-                tabla.append([datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
+                tabla.append([datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje])
                 break
             else:
                 if puntaje > int(tabla[i][2]):
-                    tabla.insert(i, [datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
+                    tabla.insert(i, [datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje])
                 elif puntaje == int(tabla[i][2]):
-                    tabla.insert(i + 1, [datetime.now().strftime("%d/%m/%Y"), usuario, puntaje])
+                    tabla.insert(i + 1, [datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje])
         if(len(tabla) > 5):
             archivo_escribir(tabla[0:5:1])
         else:
             archivo_escribir(tabla)
     else:
-        archivo_escribir([[datetime.now().strftime("%d/%m/%Y"), usuario, puntaje]])
+        archivo_escribir([[datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje]])
 
 
 # ========================= ALEATORIO ============================= #
@@ -324,10 +323,8 @@ while 6>5:
     elif option == "T":
         # ============================================= Tabla de Posiciones ============================================= #
         tabla=archivo_leer()
-        print("\n=============== Tabla de Posiciones =================")
-        print(f"\nFecha:\tUsuario: \tPuntaje:")
-        for fila in tabla:
-            print(f"{fila[0]}\t{fila[1]}\t{fila[2]}")
+        print("\n=============== Tabla de Posiciones =================\n")
+        print(tabulate(tabla, headers=['Fecha', 'Usuario', 'Puntaje'], tablefmt="fancy_grid"))
 
     
 
