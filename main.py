@@ -1,9 +1,39 @@
 import random
 from tkinter import *
 import time
+from datetime import datetime
 
 
 # ================================================== FUNCIONES ============================================ #
+
+# ============================== PUNTAJES ================================== #
+
+def archivo_leer():
+    ...
+
+def archivo_escribir(tabla):
+    ...
+
+
+def definir_puntaje(puntaje, usuario):
+    tabla = archivo_leer()
+    if(len(tabla) > 0):
+        for i in range(0, max(5, len(tabla))):
+            if(i > len(tabla) - 1):
+                tabla.append([datetime.now(), usuario, puntaje])
+                break
+            else:
+                if puntaje > tabla[i][2]:
+                    tabla.insert(i, [datetime.now(), usuario, puntaje])
+                elif puntaje == tabla[i][2]:
+                    tabla.insert(i + 1, [datetime.now(), usuario, puntaje])
+        if(len(tabla) > 5):
+            archivo_escribir(tabla[0:5:1])
+        else:
+            archivo_escribir(tabla)
+    else:
+        archivo_escribir([[datetime.now(), usuario, puntaje]])
+
 
 # ========================= ALEATORIO ============================= #
 
@@ -182,7 +212,7 @@ def mover_cartas(posicion, movimientos, desplazamiento, tiempo, carta, tiempo_es
 
 print(f"\nAdivina donde está la carta ♥\n")
 print(f"Hola 👋, bienvenido a nuestro juego... olvidé tu nombre, ¿podrías recordarlmelo?")
-player= input("Ingrese el nombre del Jugador: ")
+player= input("Ingrese el nombre de usuario: ")
 player=player.capitalize()
 print(f'\nHola {player}, ahora si te doy la bienvenida formal a "Adivina dónde esta la carta" \nElige una de las siguientes opciones:')
 
@@ -271,6 +301,8 @@ while 6>5:
                 root.mainloop()
                 print("\nUps! Creo que en esa posición no estaba 😥\n")
                 print("\nPuntuación final:", puntos_finales)
+                definir_puntaje(puntos_finales, player)
+
                 break
     elif option == "I":
         # ============================================= Instrucciones ============================================= #
