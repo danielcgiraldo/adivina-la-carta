@@ -1,6 +1,10 @@
 # fundamentos-proyecto
- Proyecto de Programación Python para la materia Fundamentos de Programación 2022-1
+Proyecto de Programación Python para la materia Fundamentos de Programación 2022-1 de la Universidad Nacional de Colombia Sede Medellín
 
+# requisitos
+
+- tkinter
+- tabulate
 
 # Referencias
 
