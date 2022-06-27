@@ -326,7 +326,11 @@ while 6>5:
         print(f"2. Se te muestran tres cartas, una de ellas es la que se te indico en el paso (1), rapidamente debes memorizar sus pocisiones.\n3. Se van a voltear e intercambiarse entre ellas.\n(Como eres un principiante se comenzaran a realizar los intercambios lentamente);\n4. Finalizados los intercambios debes escoger una de las cartas;\n5. Si aciertas con la carta indicada, ganas y avanzas al siguiente nivel.\n(Los niveles aumentan de dificultad cada vez que los superas, cada nivel superado son 5 puntos)\n\n¡Mucha Suerte!")
     elif option == "T":
         # ============================================= Tabla de Posiciones ============================================= #
-        print(f"No disponible :/, estamos trabajando en ello")  
+        tabla=archivo_leer()
+        print("=============== Tabla de Posiciones =================")
+        print("Fecha\tUsuario\tPuntaje")
+        for fila in tabla:
+            print(f"{fila[0]}\t{fila[1]}\t{fila[2]}")
 
     
 
