@@ -38,8 +38,10 @@ def definir_puntaje(puntaje, usuario):
             else:
                 if puntaje > int(tabla[i][2]):
                     tabla.insert(i, [datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje])
+                    break
                 elif puntaje == int(tabla[i][2]):
                     tabla.insert(i + 1, [datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), usuario, puntaje])
+                    break
         if(len(tabla) > 5):
             archivo_escribir(tabla[0:5:1])
         else:
